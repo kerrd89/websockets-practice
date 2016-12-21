@@ -4,6 +4,7 @@ const http = require('http');
 const express = require('express');
 const socketIo = require('socket.io');
 const votes = {};
+const _ = require('lodash');
 
 const app = express();
 
@@ -19,7 +20,7 @@ var server = http.createServer(app);
 const io = socketIo(server);
 
 function countVotes(votes) {
-var voteCount = { A: 0, B: 0, C: 0, D: 0 };
+  var voteCount = { A: 0, B: 0, C: 0, D: 0 };
   for (var vote in votes) {
     voteCount[votes[vote]]++;
   }
